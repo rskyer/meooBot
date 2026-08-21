@@ -10,6 +10,6 @@
 > ###  [User Security RUSSIAN](https://rskyer.github.io/meooBot/docs/security.ru)
 
 
-##  -------------------
-## | [View HTML Version](https://rskyer.github.io/meooBot/docs) |
-##  -------------------
+####  -------------------
+#### | [View HTML Version](https://rskyer.github.io/meooBot/docs) |
+####  -------------------
