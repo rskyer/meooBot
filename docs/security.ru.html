@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meoo Bot | Безопасность пользователей</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f0f9fc;
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      border-radius: 32px;
+      padding: 3rem 3.5rem;
+
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.02),
+        0 20px 60px -12px rgba(0, 150, 180, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+      border: 1px solid rgba(135, 206, 250, 0.2);
+    }
+
+    .header {
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid rgba(0, 180, 200, 0.12);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+
+      background: linear-gradient(
+        135deg,
+        #006680 0%,
+        #00acc1 100%
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      margin-top: 0.5rem;
+      color: #5b909c;
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.4rem 1rem;
+
+      border-radius: 100px;
+
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      color: #00856a;
+      background: rgba(0, 200, 150, 0.08);
+      border: 1px solid rgba(0, 200, 150, 0.15);
+    }
+
+    .section {
+      background: #f8fcfe;
+      border-radius: 20px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+
+      border: 1px solid rgba(0, 180, 200, 0.07);
+
+      transition: 0.2s ease;
+    }
+
+    .section:hover {
+      border-color: rgba(0, 180, 200, 0.14);
+      box-shadow: 0 5px 20px rgba(0, 150, 180, 0.04);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+
+      margin-bottom: 0.8rem;
+
+      color: #005a66;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .icon {
+      width: 34px;
+      height: 34px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+
+      background: rgba(0, 180, 200, 0.08);
+      color: #008fa1;
+
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .section p {
+      color: #294953;
+      font-size: 0.94rem;
+      line-height: 1.9;
+    }
+
+    .section code {
+      font-family: "JetBrains Mono", monospace;
+      background: rgba(0, 180, 200, 0.06);
+      padding: 0.1rem 0.4rem;
+      border-radius: 5px;
+      color: #005a66;
+    }
+
+    .warning {
+      border-left: 4px solid #f0ad00;
+      background: rgba(255, 190, 0, 0.055);
+    }
+
+    .warning .icon {
+      background: rgba(255, 180, 0, 0.1);
+      color: #a06b00;
+    }
+
+    .warning .section-title {
+      color: #8b6200;
+    }
+
+    .info {
+      border-left: 4px solid #26c6da;
+    }
+
+    .important {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.4rem;
+
+      border-radius: 14px;
+
+      background: rgba(0, 200, 150, 0.045);
+      border: 1px solid rgba(0, 200, 150, 0.1);
+
+      color: #27584e;
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+
+    .important strong {
+      color: #007b64;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+
+      border-top: 1px solid rgba(0, 180, 200, 0.08);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-text {
+      color: #60909a;
+      font-size: 0.78rem;
+    }
+
+    .path {
+      font-family: monospace;
+      direction: ltr;
+      text-align: left;
+
+      color: #4c818c;
+      font-size: 0.75rem;
+
+      background: #e8f5f9;
+
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .container {
+        padding: 2rem 1.5rem;
+        border-radius: 24px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem 0.7rem;
+      }
+
+      .container {
+        padding: 1.25rem 1rem;
+        border-radius: 20px;
+      }
+
+      .header h1 {
+        font-size: 1.65rem;
+      }
+
+      .subtitle {
+        font-size: 0.78rem;
+      }
+
+      .section {
+        padding: 1.15rem;
+        border-radius: 16px;
+      }
+
+      .section-title {
+        font-size: 0.95rem;
+      }
+
+      .section p {
+        font-size: 0.84rem;
+        line-height: 1.9;
+      }
+
+      .important {
+        font-size: 0.82rem;
+      }
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <header class="header">
+
+      <h1>Meoo Bot | Безопасность пользователей</h1>
+
+      <div class="subtitle">
+        Информация о том, как обрабатываются пользовательские данные в Meoo Bot
+      </div>
+
+      <span class="badge">
+        🔒 Безопасность пользователей
+      </span>
+
+    </header>
+
+
+    <section class="section info">
+
+      <div class="section-title">
+        <span class="icon">💬</span>
+        Сообщения, отправленные боту
+      </div>
+
+      <p>
+        Сообщения, отправленные боту, отображаются в консоли.
+      </p>
+
+    </section>
+
+
+    <section class="section info">
+
+      <div class="section-title">
+        <span class="icon">📊</span>
+        Очки пользователей
+      </div>
+
+      <p>
+        Очки пользователей сохраняются в
+        <code>JSON</code>
+        файле.
+      </p>
+
+    </section>
+
+
+    <section class="section warning">
+
+      <div class="section-title">
+        <span class="icon">⚠️</span>
+        Конфиденциальность
+      </div>
+
+      <p>
+        Мы не будем использовать вашу информацию.
+        <br>
+        Пожалуйста, будьте осторожны со своей личной информацией
+        при использовании других сервисов и взаимодействии с другими людьми.
+      </p>
+
+    </section>
+
+
+    <div class="important">
+
+      <strong>Важная информация:</strong>
+
+      Вся эта информация предоставлена вам самим
+      <strong>Skyer</strong>,
+      чтобы вы могли получить более комфортный опыт использования бота
+      и понимать, как обрабатывается ваша информация.
+
+      <br><br>
+
+      Надеемся, что вы будете использовать эту информацию в добрых целях. ❤️
+
+    </div>
+
+
+    <footer class="footer">
+
+      <div class="footer-text">
+        MeooBot · Безопасность пользователей
+      </div>
+
+      <div class="path">
+        MeooBot / docs / security
+      </div>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
