@@ -7,3 +7,4 @@
 > ## User Security: 
 > ###  [User Security](https://rskyer.github.io/meooBot/docs/security)
 > ###  [User Security ENGLISH](https://rskyer.github.io/meooBot/docs/security.en)
+> ###  [User Security RUSSIAN](https://rskyer.github.io/meooBot/docs/security.ru)
